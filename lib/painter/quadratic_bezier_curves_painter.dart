@@ -19,6 +19,16 @@ class QuadraticBezierCurvesPainter extends CustomPainter {
       ..moveTo(50, 300)
       ..relativeQuadraticBezierTo(100, -100, 300, 0);
     canvas.drawPath(qCurve1, paint);
+
+    final paint2 = Paint()
+      ..strokeWidth = 2
+      ..color = Colors.purpleAccent
+      ..style = PaintingStyle.stroke;
+
+    final qCurve2 = Path()
+      ..moveTo(350, 300)
+      ..relativeQuadraticBezierTo(-100, 100, -300, 0);
+    canvas.drawPath(qCurve2, paint2);
   }
 
   @override
