@@ -8,15 +8,35 @@ class BasicShapesPainter extends CustomPainter {
       ..strokeWidth = 5
       ..color = Colors.indigoAccent
       ..style = PaintingStyle.fill;
-    // ..style = PaintingStyle.stroke;
 
     final triangle = Path();
     triangle.moveTo(150, 0);
     triangle.relativeLineTo(100, 100);
     triangle.lineTo(size.width, 0);
-    triangle.lineTo(150, 0);
+    triangle.close();
 
     canvas.drawPath(triangle, paint);
+
+    // Rechteck
+    const square = Rect.fromLTWH(10, 10, 30, 20);
+    canvas.drawRect(square, paint);
+
+    // Kreis
+
+
+    // Stroke
+    final paint2 = Paint()
+      ..strokeWidth = 5
+      ..color = Colors.lightGreenAccent
+      ..style = PaintingStyle.stroke;
+
+    final triangle2 = Path();
+    triangle2.moveTo(0, size.height);
+    triangle2.relativeLineTo(100, -100);
+    triangle2.lineTo(size.width, size.height);
+    triangle2.close();
+
+    canvas.drawPath(triangle2, paint2);
   }
 
   @override
