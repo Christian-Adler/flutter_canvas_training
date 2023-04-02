@@ -22,7 +22,10 @@ class BasicShapesPainter extends CustomPainter {
     canvas.drawRect(square, paint);
 
     // Kreis
-
+    canvas.drawCircle(const Offset(60, 20), 10, paint);
+    // OVal
+    final oval = Rect.fromCenter(center: const Offset(90, 20), width: 30, height: 20);
+    canvas.drawOval(oval, paint);
 
     // Stroke
     final paint2 = Paint()
