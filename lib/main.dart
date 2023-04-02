@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_canvas_training/painter/arc_prainter.dart';
 import 'package:flutter_canvas_training/painter/basic_shapes_prainter.dart';
 
+import 'painter/quadratic_bezier_curves_painter.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -54,8 +56,12 @@ class _RootContainerState extends State<RootContainer> {
               child: Row(
                 children: [
                   ElevatedButton(onPressed: () => setPainter(BasicShapesPainter()), child: const Text('Basic Shape')),
-                  Spacer(),
-                  ElevatedButton(onPressed: () => setPainter(ArcPainter()), child: const Text('Arc'))
+                  const SizedBox(width: 10),
+                  ElevatedButton(onPressed: () => setPainter(ArcPainter()), child: const Text('Arc')),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                      onPressed: () => setPainter(QuadraticBezierCurvesPainter()),
+                      child: const Text('QuadraticBezierCurves')),
                 ],
               ),
             ),
