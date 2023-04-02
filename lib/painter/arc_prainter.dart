@@ -1,6 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 class ArcPainter extends CustomPainter {
+  double degreesToRadians(double deg) {
+    return deg / 360 * 2 * math.pi;
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     // print(size);
@@ -9,13 +15,12 @@ class ArcPainter extends CustomPainter {
       ..color = Colors.amber
       ..style = PaintingStyle.stroke;
 
-    final triangle = Path();
-    triangle.moveTo(150, 0);
-    triangle.relativeLineTo(100, 100);
-    triangle.lineTo(size.width, 0);
-    triangle.close();
-
-    canvas.drawPath(triangle, paint);
+    const arcCenter = Offset(200, 80);
+    final arcRect = Rect.fromCircle(center: arcCenter, radius: 75);
+    final startAngle = degreesToRadians(10);
+    final sweepAngle = degreesToRadians(90);
+    canvas.drawArc(arcRect, startAngle, sweepAngle, true, paint);
+    canvas.drawArc(arcRect, degreesToRadians(110), degreesToRadians(45), false, paint);
   }
 
   @override
