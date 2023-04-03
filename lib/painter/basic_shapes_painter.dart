@@ -29,15 +29,17 @@ class BasicShapesPainter extends CustomPainter {
 
     // Stroke
     final paint2 = Paint()
-      ..strokeWidth = 5
+      ..strokeWidth = 20
       ..color = Colors.lightGreenAccent
-      ..style = PaintingStyle.stroke;
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
 
     final triangle2 = Path();
-    triangle2.moveTo(0, size.height);
+    triangle2.moveTo(20, size.height - 20);
     triangle2.relativeLineTo(100, -100);
-    triangle2.lineTo(size.width, size.height);
-    triangle2.close();
+    triangle2.lineTo(size.width - 20, size.height - 20);
+    // triangle2.close();
 
     canvas.drawPath(triangle2, paint2);
   }
