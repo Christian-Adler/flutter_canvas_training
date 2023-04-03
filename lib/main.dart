@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'painter/arc_painter.dart';
 import 'painter/basic_shapes_painter.dart';
 import 'painter/blur_painter.dart';
+import 'painter/color_filter_painter.dart';
 import 'painter/cubic_bezier_curves_painter.dart';
 import 'painter/hit_test_painter.dart';
 import 'painter/linear_gradient_painter.dart';
@@ -110,6 +111,8 @@ class _RootContainerState extends State<RootContainer> {
                 ElevatedButton(onPressed: () => setPainter(HitTestPainter()), child: const Text('HitTest')),
                 const SizedBox(width: 10),
                 ElevatedButton(onPressed: () => setPainter(BlurPainter()), child: const Text('Blur')),
+                const SizedBox(width: 10),
+                ElevatedButton(onPressed: () => setPainter(ColorFilterPainter()), child: const Text('ColorFilter')),
               ],
             ),
           ),
