@@ -46,29 +46,38 @@ class _RootContainerState extends State<RootContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).primaryColor,
+      // color: Theme.of(context).primaryColor,
+      decoration: const BoxDecoration(
+        gradient: SweepGradient(
+          center: FractionalOffset.center,
+          colors: <Color>[
+            Color(0xFF4285F4), // blue
+            Color(0xFF34A853), // green
+            Color(0xFFFBBC05), // yellow
+            Color(0xFFEA4335), // red
+            Color(0xFF4285F4), // blue again to seamlessly transition to the start
+          ],
+          stops: <double>[0.0, 0.25, 0.5, 0.75, 1.0],
+        ),
+      ),
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            color: Theme.of(context).colorScheme.onPrimary,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ElevatedButton(onPressed: () => setPainter(BasicShapesPainter()), child: const Text('Basic Shape')),
-                  const SizedBox(width: 10),
-                  ElevatedButton(onPressed: () => setPainter(ArcPainter()), child: const Text('Arc')),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                      onPressed: () => setPainter(QuadraticBezierCurvesPainter()),
-                      child: const Text('QuadraticBezierCurves')),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                      onPressed: () => setPainter(CubicBezierCurvesPainter()), child: const Text('CubicBezierCurves')),
-                ],
-              ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ElevatedButton(onPressed: () => setPainter(BasicShapesPainter()), child: const Text('Basic Shape')),
+                const SizedBox(width: 10),
+                ElevatedButton(onPressed: () => setPainter(ArcPainter()), child: const Text('Arc')),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                    onPressed: () => setPainter(QuadraticBezierCurvesPainter()),
+                    child: const Text('QuadraticBezierCurves')),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                    onPressed: () => setPainter(CubicBezierCurvesPainter()), child: const Text('CubicBezierCurves')),
+              ],
             ),
           ),
           const SizedBox(height: 10),
