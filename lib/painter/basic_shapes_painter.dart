@@ -20,6 +20,8 @@ class BasicShapesPainter extends CustomPainter {
     // Rechteck
     const square = Rect.fromLTWH(10, 10, 30, 20);
     canvas.drawRect(square, paint);
+    final squareR = RRect.fromRectXY(const Rect.fromLTWH(10, 40, 100, 50), 20, 10);
+    canvas.drawRRect(squareR, paint);
 
     // Kreis
     canvas.drawCircle(const Offset(60, 20), 10, paint);
