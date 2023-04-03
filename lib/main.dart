@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'painter/arc_painter.dart';
 import 'painter/basic_shapes_painter.dart';
 import 'painter/cubic_bezier_curves_painter.dart';
+import 'painter/hit_test_painter.dart';
 import 'painter/linear_gradient_painter.dart';
 import 'painter/quadratic_bezier_curves_painter.dart';
 import 'painter/radial_gradient_painter.dart';
@@ -104,6 +105,8 @@ class _RootContainerState extends State<RootContainer> {
                     onPressed: () => setPainter(ShouldRepaintPainter(widget.nextDouble(0, 360))),
                     // onPressed: () => setPainter(ShouldRepaintPainter(50)),
                     child: const Text('ShouldRepaint')),
+                const SizedBox(width: 10),
+                ElevatedButton(onPressed: () => setPainter(HitTestPainter()), child: const Text('HitTest')),
               ],
             ),
           ),
