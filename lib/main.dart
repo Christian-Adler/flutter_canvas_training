@@ -1,11 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_canvas_training/painter/arc_prainter.dart';
-import 'package:flutter_canvas_training/painter/basic_shapes_prainter.dart';
+import 'dart:math' as math;
 
+import 'package:flutter/material.dart';
+
+import 'painter/arc_painter.dart';
+import 'painter/basic_shapes_painter.dart';
 import 'painter/cubic_bezier_curves_painter.dart';
+import 'painter/linear_gradient_painter.dart';
 import 'painter/quadratic_bezier_curves_painter.dart';
-import 'painter/radial_gradient_prainter.dart';
-import 'painter/sweep_gradient_prainter.dart';
+import 'painter/radial_gradient_painter.dart';
+import 'painter/should_repaint_painter.dart';
+import 'painter/sweep_gradient_painter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const Scaffold(
+      home: Scaffold(
         body: SafeArea(child: RootContainer()),
       ),
     );
@@ -30,7 +34,15 @@ class MyApp extends StatelessWidget {
 }
 
 class RootContainer extends StatefulWidget {
-  const RootContainer({super.key});
+  final _random = math.Random();
+
+  RootContainer({super.key});
+
+  /// Generates a positive random integer uniformly distributed on the range
+  /// from [min], inclusive, to [max], exclusive.
+  int nextInt(int min, int max) => min + _random.nextInt(max - min);
+
+  double nextDouble(double min, double max) => min + _random.nextDouble() * (max - min);
 
   @override
   State<RootContainer> createState() => _RootContainerState();
@@ -84,6 +96,14 @@ class _RootContainerState extends State<RootContainer> {
                     onPressed: () => setPainter(RadialGradientPainter()), child: const Text('RadialGradient')),
                 const SizedBox(width: 10),
                 ElevatedButton(onPressed: () => setPainter(SweepGradientPainter()), child: const Text('SweepGradient')),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                    onPressed: () => setPainter(LinearGradientPainter()), child: const Text('LinearGradient')),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                    onPressed: () => setPainter(ShouldRepaintPainter(widget.nextDouble(0, 360))),
+                    // onPressed: () => setPainter(ShouldRepaintPainter(50)),
+                    child: const Text('ShouldRepaint')),
               ],
             ),
           ),
