@@ -5,6 +5,7 @@ import 'package:flutter_canvas_training/painter/basic_shapes_prainter.dart';
 import 'painter/cubic_bezier_curves_painter.dart';
 import 'painter/quadratic_bezier_curves_painter.dart';
 import 'painter/radial_gradient_prainter.dart';
+import 'painter/sweep_gradient_prainter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,6 +82,8 @@ class _RootContainerState extends State<RootContainer> {
                 const SizedBox(width: 10),
                 ElevatedButton(
                     onPressed: () => setPainter(RadialGradientPainter()), child: const Text('RadialGradient')),
+                const SizedBox(width: 10),
+                ElevatedButton(onPressed: () => setPainter(SweepGradientPainter()), child: const Text('SweepGradient')),
               ],
             ),
           ),
