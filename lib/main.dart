@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_canvas_training/widgets/simple_painters.dart';
+
+import 'widgets/animated/animated_painters.dart';
+import 'widgets/simple_painters.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,11 +33,11 @@ class RootContainer extends StatefulWidget {
 }
 
 class _RootContainerState extends State<RootContainer> {
-  Widget painter = Container();
+  Widget widg = Container();
 
-  void setPainter(Widget p) {
+  void setWidget(Widget p) {
     setState(() {
-      painter = p;
+      widg = p;
     });
   }
 
@@ -64,8 +66,10 @@ class _RootContainerState extends State<RootContainer> {
             child: Row(
               children: [
                 ElevatedButton(
-                    onPressed: () => setPainter(const SimplePainters()), child: const Text('Simple Painters')),
+                    onPressed: () => setWidget(const SimplePainters()), child: const Text('Simple Painters')),
                 const SizedBox(width: 10),
+                ElevatedButton(
+                    onPressed: () => setWidget(const AnimatedPainters()), child: const Text('Animated Painters')),
               ],
             ),
           ),
@@ -75,7 +79,7 @@ class _RootContainerState extends State<RootContainer> {
               // Groeße: Wichtig, damit im Painter Size korrekt geht. Sonst width & height = 0
               width: double.infinity,
               height: double.infinity,
-              child: painter,
+              child: widg,
             ),
           ),
         ],
