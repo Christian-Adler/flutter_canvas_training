@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'animated_arc.dart';
+import 'animated_multiple.dart';
 
 class AnimatedPainters extends StatefulWidget {
   const AnimatedPainters({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _AnimatedPaintersState extends State<AnimatedPainters> {
             children: [
               ElevatedButton(onPressed: () => setWidget(const AnimatedArc()), child: const Text('Arc')),
               const SizedBox(width: 10),
+              ElevatedButton(onPressed: () => setWidget(const AnimatedMultiple()), child: const Text('Multiple')),
             ],
           ),
         ),
