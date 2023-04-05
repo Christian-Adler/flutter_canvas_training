@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'animated_arc.dart';
+import 'animated_hit.dart';
 import 'animated_multiple.dart';
 
 class AnimatedPainters extends StatefulWidget {
@@ -30,6 +31,8 @@ class _AnimatedPaintersState extends State<AnimatedPainters> {
               ElevatedButton(onPressed: () => setWidget(const AnimatedArc()), child: const Text('Arc')),
               const SizedBox(width: 10),
               ElevatedButton(onPressed: () => setWidget(const AnimatedMultiple()), child: const Text('Multiple')),
+              const SizedBox(width: 10),
+              ElevatedButton(onPressed: () => setWidget(const AnimatedHit()), child: const Text('Hit')),
             ],
           ),
         ),
